@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'none'">
+<title>breach-to-boardroom</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>breach-to-boardroom</h1>
+  <p class="sub">Raw logs in. A board-ready incident brief out: what happened, what it could cost in euros, which legal clocks are running and what leadership must decide. Runs in this tab, nothing is uploaded.</p>
+</header>
+<main>
+  <section id="input" class="panel">
+    <div id="drop" tabindex="0">
+      <strong>Drop logs here</strong> or <label class="pick">choose files<input id="file" type="file" multiple hidden></label>
+      <span class="hint">Windows events (JSON), auth.log, web access log</span>
+      <button id="sample" type="button">Load the sample incident</button>
+    </div>
+    <div class="grid">
+      <label>Downtime cost per hour (EUR)<input id="a-down" type="number" min="0" value="8000"></label>
+      <label>Records at risk<input id="a-rec" type="number" min="0" value="20000"></label>
+      <label>Cost per exposed record (EUR)<input id="a-cpr" type="number" min="0" value="150"></label>
+      <label>Annual revenue (EUR)<input id="a-rev" type="number" min="0" value="50000000"></label>
+      <label>Syslog year<input id="year" type="number" min="1970" max="2100" value="2026"></label>
+    </div>
+  </section>
+  <p id="warn" role="status"></p>
+  <section id="out" hidden>
+    <div id="head" class="headline"></div>
+    <div id="cards"></div>
+    <div class="two">
+      <div class="panel"><h2>Cost by scenario</h2><svg id="chart" viewBox="0 0 520 190" role="img" aria-label="Loss by scenario"></svg><p class="hint">Bars show the median, the line the 1-in-10 case. The combined incident is not the sum of the bars: scenarios overlap.</p></div>
+      <div class="panel"><h2>Legal clocks</h2><table id="clocks"></table></div>
+    </div>
+    <div class="two">
+      <div class="panel"><h2>Decisions for leadership</h2><ol id="decisions"></ol></div>
+      <div class="panel"><h2>Next 72 hours</h2><ul id="actions"></ul></div>
+    </div>
+    <div class="panel"><h2>Full brief</h2><div class="actions"><button id="dl" type="button">Download (.md)</button> <button id="print" type="button">Print or save as PDF</button></div><pre id="md"></pre></div>
+  </section>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>

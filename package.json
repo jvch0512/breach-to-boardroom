@@ -1,0 +1,17 @@
+{
+  "name": "breach-to-boardroom",
+  "version": "1.0.0",
+  "description": "From raw logs to a board-ready incident brief: attack chain, euro loss range (Monte Carlo), NIS2 and GDPR clocks and the decisions leadership has to make. Local, zero runtime dependencies.",
+  "license": "MIT",
+  "type": "module",
+  "bin": { "breach-to-boardroom": "dist/src/cli.js" },
+  "scripts": {
+    "build": "tsc",
+    "start": "tsc && node dist/src/server-main.js",
+    "test": "tsc && node --test dist/test/*.test.js"
+  },
+  "repository": "github:jvch0512/breach-to-boardroom",
+  "keywords": ["incident-response", "nis2", "gdpr", "risk-quantification", "monte-carlo", "dfir", "ciso", "board-reporting", "typescript"],
+  "devDependencies": { "@types/node": "^22.0.0", "typescript": "^5.6.0" },
+  "engines": { "node": ">=20" }
+}
